@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feed — VEYORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="css/social.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="app-body auth-pending">
+  <header class="app-nav">
+    <a class="brand" href="home.html">VEYORA<span>.</span></a>
+    <nav class="app-nav-links" aria-label="Main navigation">
+      <a href="home.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="watchlist.html">My Library</a>
+      <a class="active" href="feed.html">Feed</a><a href="find-friends.html">Find Friends</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="nav-user">
+      <a id="nav-bell" class="nav-bell" href="notifications.html" aria-label="Notifications">🔔<span class="nav-bell-badge"></span></a>
+      <a id="nav-avatar-button" class="avatar avatar-small" href="profile.html" aria-label="Open profile"></a>
+    </div>
+  </header>
+
+  <main class="social-page">
+    <section>
+      <p class="eyebrow">SOCIAL</p>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem)">The Feed</h1>
+      <p class="text-muted">Share what you're watching. See what everyone else is into.</p>
+    </section>
+
+    <form class="composer" id="composer">
+      <div class="composer-top">
+        <span id="composer-avatar" class="avatar avatar-small"></span>
+        <textarea id="composer-text" maxlength="500" placeholder="What are you watching?" required></textarea>
+      </div>
+      <div id="composer-image-preview" class="composer-image-preview" style="display:none"></div>
+      <div id="composer-gallery" class="image-gallery" style="display:none"></div>
+      <div class="composer-foot">
+        <div style="display:flex;align-items:center;gap:10px">
+          <button type="button" class="composer-image-toggle" id="composer-image-btn">🖼️ Add image</button>
+          <span class="composer-counter"><span id="composer-count">0</span>/500</span>
+        </div>
+        <button class="btn btn-primary" type="submit" id="composer-submit">Post</button>
+      </div>
+      <p id="composer-message" class="field-error"></p>
+    </form>
+
+    <div class="social-tabs" role="tablist">
+      <button type="button" class="active" data-tab="newest">Newest</button>
+      <button type="button" data-tab="following">Following</button>
+    </div>
+
+    <div id="feed-status" class="text-muted"></div>
+    <div id="feed-list" class="post-feed"></div>
+  </main>
+
+  <script type="module" src="js/pages/feed.js"></script>
+</body>
+</html>
