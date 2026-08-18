@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Friends — VEYORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/social.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="app-body auth-pending">
+  <header class="app-nav">
+    <a class="brand" href="home.html">VEYORA<span>.</span></a>
+    <nav class="app-nav-links" aria-label="Main navigation">
+      <a href="home.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="watchlist.html">My Library</a>
+      <a href="feed.html">Feed</a>
+      <a class="active" href="find-friends.html">Find Friends</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="nav-user">
+      <a id="nav-bell" class="nav-bell" href="notifications.html" aria-label="Notifications">🔔<span class="nav-bell-badge"></span></a>
+      <a id="nav-avatar-button" class="avatar avatar-small" href="profile.html" aria-label="Open profile"></a>
+    </div>
+  </header>
+
+  <main class="social-page wide find-friends-page">
+    <section class="find-friends-hero">
+      <p class="eyebrow">VEYORA SOCIAL</p>
+      <h1>Find Friends</h1>
+      <p class="text-muted">Find people by username and follow the ones whose watchlists you want to discover.</p>
+      <form id="friend-search-form" class="friend-search-form">
+        <label class="sr-only" for="friend-search">Search username</label>
+        <input id="friend-search" type="search" placeholder="🔎 Search @username..." autocomplete="off" maxlength="20" />
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+      <p id="friend-search-status" class="text-muted" aria-live="polite">Type at least 2 characters to find people.</p>
+    </section>
+
+    <section aria-labelledby="results-title">
+      <div class="panel-heading find-friends-heading">
+        <div><p class="eyebrow">PEOPLE</p><h2 id="results-title">Search results</h2></div>
+      </div>
+      <div id="friend-results" class="people-list"></div>
+    </section>
+  </main>
+
+  <script type="module" src="js/pages/find-friends.js"></script>
+</body>
+</html>
