@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — VEYORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="css/social.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="app-body auth-pending">
+  <header class="app-nav">
+    <a class="brand" href="home.html">VEYORA<span>.</span></a>
+    <nav class="app-nav-links" aria-label="Main navigation">
+      <a href="home.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="watchlist.html">My Library</a>
+      <a href="feed.html">Feed</a><a href="find-friends.html">Find Friends</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="nav-user">
+      <a id="nav-bell" class="nav-bell" href="notifications.html" aria-label="Notifications">🔔<span class="nav-bell-badge"></span></a>
+      <a id="nav-avatar-button" class="avatar avatar-small" href="profile.html" aria-label="Open profile"></a>
+    </div>
+  </header>
+
+  <main class="profile-page">
+    <section class="profile-cover" id="profile-cover">
+      <div class="profile-cover-content">
+        <div class="profile-avatar-wrap">
+          <div id="profile-avatar" class="avatar avatar-xl"></div>
+        </div>
+        <div class="profile-heading">
+          <p class="eyebrow">PROFILE</p>
+          <h1 id="profile-nickname">Loading…</h1>
+          <p id="profile-username" class="profile-handle">@username</p>
+          <p id="profile-bio" class="profile-bio">No bio yet.</p>
+        </div>
+        <div>
+          <button id="follow-btn" class="btn btn-primary follow-btn" type="button" style="display:none">Follow</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-stats" aria-label="Profile statistics">
+      <div><strong id="stat-followers">0</strong><span>Followers</span></div>
+      <div><strong id="stat-following">0</strong><span>Following</span></div>
+      <div><strong id="stat-posts">0</strong><span>Posts</span></div>
+      <div><strong id="stat-library">0</strong><span>Library</span></div>
+    </section>
+
+    <section class="social-page wide">
+      <div class="social-tabs" role="tablist">
+        <button type="button" class="active" data-tab="posts">Posts</button>
+        <button type="button" data-tab="library">Library</button>
+        <button type="button" data-tab="followers">Followers</button>
+        <button type="button" data-tab="following">Following</button>
+      </div>
+
+      <div id="tab-status" class="text-muted"></div>
+      <div id="tab-posts" class="post-feed"></div>
+      <div id="tab-library" class="user-library-grid" style="display:none"></div>
+      <div id="tab-followers" class="people-list" style="display:none"></div>
+      <div id="tab-following" class="people-list" style="display:none"></div>
+    </section>
+  </main>
+
+  <script type="module" src="js/pages/user-profile.js"></script>
+</body>
+</html>
