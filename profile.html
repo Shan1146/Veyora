@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — VEYORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="css/social.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="app-body auth-pending">
+  <header class="app-nav">
+    <a class="brand" href="home.html">VEYORA<span>.</span></a>
+    <nav class="app-nav-links" aria-label="Main navigation">
+      <a href="home.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="watchlist.html">My Library</a>
+      <a href="feed.html">Feed</a><a href="find-friends.html">Find Friends</a>
+      <a class="active" href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    <a href="customize.html">Customize</a></nav>
+    <div class="nav-user">
+      <span id="nav-nickname">Loading…</span>
+      <a id="nav-bell" class="nav-bell" href="notifications.html" aria-label="Notifications">🔔<span class="nav-bell-badge"></span></a>
+      <button id="nav-avatar-button" class="avatar avatar-small" type="button" aria-label="Open profile"></button>
+    </div>
+  </header>
+
+  <main class="profile-page">
+    <section class="profile-cover" id="profile-cover">
+      <div class="profile-cover-content">
+        <div class="profile-avatar-wrap">
+          <div id="profile-avatar" class="avatar avatar-xl"></div>
+          <span class="profile-online-dot" aria-label="Online"></span>
+        </div>
+        <div class="profile-heading">
+          <p class="eyebrow">MY PROFILE</p>
+          <h1 id="profile-nickname">Loading…</h1>
+          <p id="profile-username" class="profile-handle">@username</p>
+          <p id="profile-bio" class="profile-bio">No bio yet.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-primary profile-edit" href="settings.html">Edit profile</a><a class="btn" href="avatar.html">✨ Customize Avatar</a></div>
+      </div>
+    </section>
+
+    <section class="profile-stats" aria-label="Profile statistics">
+      <div><strong>0</strong><span>Anime</span></div>
+      <div><strong>0</strong><span>K-Dramas</span></div>
+      <div><strong>0</strong><span>Movies</span></div>
+      <div><strong id="stat-followers">0</strong><span>Followers</span></div>
+      <div><strong id="stat-following">0</strong><span>Following</span></div>
+      <div><strong id="stat-posts">0</strong><span>Posts</span></div>
+    </section>
+
+    <section class="profile-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">ABOUT</p><h2>My space</h2></div>
+          <span class="panel-icon">✦</span>
+        </div>
+        <p class="panel-copy">Your nickname, bio, avatar, and library statistics are connected to your account. Create a custom avatar and make your profile yours.</p>
+      </article>
+      <article class="panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">NEXT</p><h2>Build your library</h2></div>
+          <span class="panel-icon">＋</span>
+        </div>
+        <p class="panel-copy">Your library is connected now. Add anime, K-dramas, and movies from Search, then they will appear in your profile statistics.</p>
+      </article>
+    </section>
+
+    <section class="social-page wide" style="padding-top:0">
+      <div class="panel-heading" style="margin:0 var(--space-6)">
+        <div><p class="eyebrow">MY POSTS</p><h2>What you've shared</h2></div>
+        <a class="btn btn-primary" href="feed.html">＋ New post</a>
+      </div>
+      <div id="my-posts-status" class="text-muted" style="margin:var(--space-3) var(--space-6) 0">Loading…</div>
+      <div id="my-posts" class="post-feed" style="margin-left:var(--space-6);margin-right:var(--space-6)"></div>
+    </section>
+  </main>
+
+  <script type="module" src="js/profile/profile.js"></script>
+</body>
+</html>
