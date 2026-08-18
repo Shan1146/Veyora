@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home — VEYORA</title><link rel="stylesheet" href="css/search.css"></head>
+<body>
+<header class="topbar">
+<a class="brand" href="home.html">VEYORA.</a>
+<nav><a class="active" href="home.html">Home</a><a href="search.html">Search</a><a href="watchlist.html">My Library</a><a href="feed.html">Feed</a><a href="find-friends.html">Find Friends</a><a href="profile.html">Profile</a><a href="settings.html">Settings</a><a href="customize.html">Customize</a><a href="avatar.html">Avatar</a><a href="notifications.html">🔔</a></nav>
+</header>
+<main class="page discovery-page">
+<section class="hero"><p class="eyebrow">DISCOVERY & ENGAGEMENT</p><h1 id="welcome">Welcome.</h1><p>Your personalized place to discover what to watch next.</p><form id="homeSearch"><input id="homeQuery" placeholder="🔎 Search anime, K-drama, or movie..." autocomplete="off"><button>Search</button></form><div class="filters"><a class="primary" href="search.html?type=anime">🎌 Anime</a><a class="primary" href="search.html?type=tv">📺 TV</a><a class="primary" href="search.html?type=movie">🎬 Movies</a></div></section>
+<section><h2>Continue Watching</h2><div id="continue" class="grid horizontal"></div></section>
+<section><h2>Because you watched...</h2><p class="muted">Recommendations based on your library.</p><div id="because" class="grid horizontal"></div></section>
+<section><h2>🔥 Trending Now</h2><div id="trending" class="grid horizontal"></div></section>
+<section><h2>🎌 Popular Anime</h2><div id="anime" class="grid horizontal"></div></section>
+<section><h2>Your Library</h2><p id="libraryStatus">Loading your collection...</p><div id="preview" class="grid horizontal"></div></section>
+</main>
+<script type="module" src="js/pages/home.js"></script>
+</body></html>
