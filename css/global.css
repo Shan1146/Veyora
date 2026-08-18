@@ -188,3 +188,16 @@ body {
   left: var(--space-4);
   top: var(--space-4);
 }
+
+.site-footer {
+  text-align: center;
+  padding: 24px 16px;
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.site-footer strong {
+  color: var(--text);
+}
