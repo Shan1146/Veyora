@@ -1,0 +1,190 @@
+/* =========================================================
+   VEYORA — Global Styles
+   ========================================================= */
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  background-image:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(232, 176, 75, 0.08), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(255, 107, 94, 0.06), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* ---- Utility text styles ---- */
+.eyebrow {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--marquee-gold);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  letter-spacing: 0.01em;
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--marquee-gold);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--marquee-gold);
+  color: #1a1408;
+}
+
+.btn-primary:hover {
+  box-shadow: var(--glow-gold);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--surface-line);
+}
+
+.btn-ghost:hover {
+  border-color: var(--marquee-gold-dim);
+  background: var(--bg-elevated-2);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ---- Form fields ---- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  text-align: left;
+}
+
+.field label {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.field input {
+  background: var(--bg);
+  border: 1px solid var(--surface-line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.field input::placeholder {
+  color: var(--text-faint);
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--marquee-gold);
+}
+
+.field-error {
+  font-size: var(--text-xs);
+  color: var(--stub-coral);
+  min-height: 1em;
+}
+
+/* ---- Alerts / inline form messages ---- */
+.form-message {
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  display: none;
+}
+
+.form-message.visible {
+  display: block;
+}
+
+.form-message.error {
+  background: rgba(255, 107, 94, 0.12);
+  border: 1px solid rgba(255, 107, 94, 0.35);
+  color: #ffb3ac;
+}
+
+.form-message.success {
+  background: rgba(111, 191, 139, 0.12);
+  border: 1px solid rgba(111, 191, 139, 0.35);
+  color: #b7e4c7;
+}
+
+/* ---- Loading spinner (inline, for buttons) ---- */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-top-color: currentColor;
+  animation: spin 0.7s linear infinite;
+  display: none;
+}
+
+.is-loading .spinner {
+  display: inline-block;
+}
+
+.is-loading .btn-label {
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Skip link for accessibility ---- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--marquee-gold);
+  color: #1a1408;
+  padding: var(--space-2) var(--space-4);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: var(--space-4);
+  top: var(--space-4);
+}

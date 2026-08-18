@@ -1,0 +1,85 @@
+/* =========================================================
+   VEYORA — Design Tokens
+   Concept: "Night Cinema / Ticket Stub"
+   A personal media tracker should feel like the moment the
+   lights go down and your ticket is torn — intimate, a little
+   glamorous, quietly nocturnal.
+   ========================================================= */
+
+:root {
+  /* ---- Color: Night Cinema ---- */
+  --bg: #120d1e;              /* deep aubergine-black, the dark of the theater */
+  --bg-elevated: #1c1530;     /* raised surfaces, cards */
+  --bg-elevated-2: #251c3d;   /* hover / active surfaces */
+  --surface-line: #352a52;    /* hairline borders on dark surfaces */
+
+  --marquee-gold: #e8b04b;    /* primary accent — marquee bulbs */
+  --marquee-gold-dim: #a67f3a;
+  --stub-coral: #ff6b5e;      /* secondary accent — favorites, ratings, alerts */
+  --stub-coral-dim: #c94f45;
+
+  --text-primary: #f5f1ec;    /* warm off-white, not pure white */
+  --text-muted: #a89bc4;      /* lavender-grey for secondary text */
+  --text-faint: #6f6389;      /* tertiary / placeholder text */
+
+  --success: #6fbf8b;
+  --danger: #ff6b5e;
+
+  /* ---- Typography ---- */
+  /* Display: condensed marquee letterforms for headlines & the logo */
+  --font-display: 'Bebas Neue', 'Anton', 'Oswald', sans-serif;
+  /* Body: clean geometric sans for everything readable */
+  --font-body: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Utility: for captions, meta, timestamps, stat labels */
+  --font-utility: 'IBM Plex Mono', 'Space Mono', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;
+  --text-4xl: 4rem;
+
+  /* ---- Spacing scale ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 6rem;
+
+  /* ---- Radius & shape ---- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* ---- Shadow / glow ---- */
+  --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+  --glow-gold: 0 0 24px rgba(232, 176, 75, 0.35);
+  --glow-coral: 0 0 24px rgba(255, 107, 94, 0.35);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-med: 320ms;
+
+  /* ---- Layout ---- */
+  --max-width: 1280px;
+  --sidebar-width: 240px;
+  --navbar-height: 64px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create your account — VEYORA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="auth-pending">
+  <a class="skip-link" href="#register-form">Skip to registration form</a>
+
+  <main class="auth-shell">
+    <section class="auth-hero">
+      <div class="auth-logo">VEYORA<span class="dot">.</span></div>
+
+      <div class="auth-hero-content">
+        <h1>Start your <span>collection</span>.</h1>
+        <p>
+          Pick a username, choose a nickname the world will see, and start
+          building the watchlist that's actually yours.
+        </p>
+      </div>
+
+      <div class="auth-hero-strip">
+        <span>Anime</span>
+        <span>K-Drama</span>
+        <span>Movies</span>
+        <span>TV Shows</span>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="ticket">
+        <div class="ticket-top">
+          <span class="ticket-tag">New Member</span>
+          <h2>Create your account</h2>
+          <p class="ticket-sub">It only takes a minute.</p>
+
+          <form id="register-form" class="ticket-form" novalidate>
+            <div class="name-row">
+              <div class="field">
+                <label for="register-nickname">Nickname</label>
+                <input type="text" id="register-nickname" name="nickname" autocomplete="nickname" required placeholder="Sean" />
+              </div>
+              <div class="field">
+                <label for="register-username">Username</label>
+                <input type="text" id="register-username" name="username" autocomplete="username" required placeholder="sean123" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="register-email">Email</label>
+              <input type="email" id="register-email" name="email" autocomplete="email" required placeholder="you@example.com" />
+            </div>
+            <div class="field">
+              <label for="register-password">Password</label>
+              <input type="password" id="register-password" name="password" autocomplete="new-password" required placeholder="At least 6 characters" />
+            </div>
+
+            <div id="register-message" class="form-message" role="alert"></div>
+
+            <button type="submit" id="register-submit" class="btn btn-primary btn-block">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="btn-label">Create Account</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="ticket-perforation"></div>
+
+        <div class="ticket-bottom">
+          <p class="ticket-switch">
+            Already have an account? <a href="index.html">Sign in</a>
+          </p>
+          <div class="ticket-barcode" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/auth/register.js"></script>
+</body>
+</html>

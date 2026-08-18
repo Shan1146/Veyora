@@ -1,0 +1,246 @@
+/* =========================================================
+   VEYORA — Auth Pages (Landing / Login / Register)
+   Signature element: the "ticket stub" card — a torn-edge
+   admission ticket, because VEYORA is where you check in
+   your own screening of everything you watch.
+   ========================================================= */
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Left: marquee hero panel ---- */
+.auth-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-8) var(--space-10);
+  overflow: hidden;
+  border-right: 1px solid var(--surface-line);
+}
+
+@media (max-width: 900px) {
+  .auth-hero {
+    border-right: none;
+    border-bottom: 1px solid var(--surface-line);
+    padding: var(--space-6) var(--space-5);
+  }
+}
+
+.auth-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      115deg,
+      rgba(232, 176, 75, 0.05) 0px,
+      rgba(232, 176, 75, 0.05) 1px,
+      transparent 1px,
+      transparent 64px
+    );
+  pointer-events: none;
+}
+
+.auth-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  letter-spacing: 0.06em;
+  color: var(--marquee-gold);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  z-index: 1;
+}
+
+.auth-logo .dot {
+  color: var(--stub-coral);
+}
+
+.auth-hero-content {
+  z-index: 1;
+  max-width: 30rem;
+}
+
+.auth-hero-content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, var(--text-4xl));
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  margin-bottom: var(--space-5);
+}
+
+.auth-hero-content h1 span {
+  color: var(--marquee-gold);
+}
+
+.auth-hero-content p {
+  color: var(--text-muted);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+}
+
+.auth-hero-strip {
+  z-index: 1;
+  display: flex;
+  gap: var(--space-6);
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  flex-wrap: wrap;
+}
+
+.auth-hero-strip span {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.auth-hero-strip span::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--marquee-gold-dim);
+}
+
+/* ---- Right: form panel with the ticket stub card ---- */
+.auth-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-6);
+}
+
+.ticket {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--surface-line);
+  overflow: visible;
+}
+
+.ticket-top {
+  padding: var(--space-8) var(--space-6) var(--space-6);
+}
+
+.ticket-tag {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stub-coral);
+  background: rgba(255, 107, 94, 0.1);
+  border: 1px solid rgba(255, 107, 94, 0.3);
+  border-radius: var(--radius-pill);
+  padding: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.ticket-top h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  letter-spacing: 0.03em;
+  margin-bottom: var(--space-1);
+}
+
+.ticket-top .ticket-sub {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-6);
+}
+
+.ticket-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* the perforation: dashed tear line with notches cut from the sides */
+.ticket-perforation {
+  position: relative;
+  height: 0;
+  border-top: 2px dashed var(--surface-line);
+  margin: var(--space-6) 0 0;
+}
+
+.ticket-perforation::before,
+.ticket-perforation::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.ticket-perforation::before { left: -12px; }
+.ticket-perforation::after { right: -12px; }
+
+.ticket-bottom {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.ticket-switch {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.ticket-switch a {
+  color: var(--marquee-gold);
+  font-weight: 600;
+}
+
+.ticket-switch a:hover {
+  text-decoration: underline;
+}
+
+.ticket-barcode {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 20px;
+  opacity: 0.5;
+}
+
+.ticket-barcode span {
+  width: 2px;
+  background: var(--text-faint);
+}
+
+.ticket-barcode span:nth-child(3n) { height: 100%; }
+.ticket-barcode span:nth-child(3n+1) { height: 60%; }
+.ticket-barcode span:nth-child(3n+2) { height: 85%; }
+
+.name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+@media (max-width: 420px) {
+  .name-row {
+    grid-template-columns: 1fr;
+  }
+}

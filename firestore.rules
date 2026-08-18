@@ -1,0 +1,138 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------------------------------------------------------
+    // Users
+    // ---------------------------------------------------------
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow create, update, delete:
+        if request.auth != null && request.auth.uid == userId;
+
+      // A user's watchlist is readable by any signed-in visitor
+      // (needed for the public "Library" section on profiles),
+      // but only the owner can ever write to it.
+      match /watchlist/{itemId} {
+        allow read: if request.auth != null;
+        allow create, update, delete:
+          if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    match /usernames/{username} {
+      allow read: if true;
+      allow create:
+        if request.auth != null
+        && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    // ---------------------------------------------------------
+    // Posts (6.1 / 6.2)
+    // ---------------------------------------------------------
+    match /posts/{postId} {
+      allow read: if request.auth != null;
+
+      allow create:
+        if request.auth != null
+        && request.resource.data.authorId == request.auth.uid
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 500;
+
+      // Only the author can edit their own post, and only the
+      // content fields — not authorship or timestamps.
+      allow update:
+        if request.auth != null
+        && resource.data.authorId == request.auth.uid
+        && request.resource.data.authorId == resource.data.authorId
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['text', 'image', 'editedAt']);
+
+      allow delete:
+        if request.auth != null && resource.data.authorId == request.auth.uid;
+
+      // ---- Likes (6.3) ----
+      // Doc id === liking user's uid, which is what makes a
+      // second like from the same person impossible to create.
+      match /likes/{likeId} {
+        allow read: if request.auth != null;
+        allow create:
+          if request.auth != null
+          && request.auth.uid == likeId
+          && request.resource.data.uid == request.auth.uid;
+        allow delete:
+          if request.auth != null && request.auth.uid == likeId;
+        allow update: if false;
+      }
+
+      // ---- Comments (6.4) ----
+      match /comments/{commentId} {
+        allow read: if request.auth != null;
+        allow create:
+          if request.auth != null
+          && request.resource.data.authorId == request.auth.uid
+          && request.resource.data.text is string
+          && request.resource.data.text.size() > 0
+          && request.resource.data.text.size() <= 300;
+        allow delete:
+          if request.auth != null && resource.data.authorId == request.auth.uid;
+        allow update: if false;
+      }
+    }
+
+    // ---------------------------------------------------------
+    // Following (6.6)
+    // Doc id is "{followerId}_{followingId}" so a duplicate
+    // follow edge is structurally impossible to create.
+    // ---------------------------------------------------------
+    match /follows/{edgeId} {
+      allow read: if request.auth != null;
+      allow create:
+        if request.auth != null
+        && request.resource.data.followerId == request.auth.uid
+        && request.resource.data.followingId != request.auth.uid
+        && edgeId == request.resource.data.followerId + '_' + request.resource.data.followingId;
+      allow delete:
+        if request.auth != null && resource.data.followerId == request.auth.uid;
+      allow update: if false;
+    }
+
+    // ---------------------------------------------------------
+    // Notifications (6.7)
+    // Stored per-recipient at notifications/{ownerId}/items/{id}.
+    // The actor who caused the notification (the follower, the
+    // liker, the commenter) is the one who creates it in the
+    // recipient's inbox — but only the recipient can ever read
+    // it, and the only edit allowed is flipping "read".
+    // ---------------------------------------------------------
+    match /notifications/{ownerId} {
+      allow read, write: if false; // no data lives on the parent doc itself
+
+      match /items/{notifId} {
+        allow read: if request.auth != null && request.auth.uid == ownerId;
+
+        allow create:
+          if request.auth != null
+          && request.resource.data.toUserId == ownerId
+          && request.resource.data.fromUserId == request.auth.uid
+          && request.resource.data.fromUserId != ownerId
+          && request.resource.data.read == false;
+
+        allow update:
+          if request.auth != null
+          && request.auth.uid == ownerId
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read']);
+
+        allow delete:
+          if request.auth != null && request.auth.uid == ownerId;
+      }
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

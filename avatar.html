@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Avatar — VEYORA</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/global.css">
+<style>
+body{background:#0d0918}.avatar-page{max-width:1050px;margin:0 auto;padding:44px 20px 90px}.avatar-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}.avatar-head h1{margin:.15rem 0}.avatar-head p{color:#b9aec7}.picker-layout{display:grid;grid-template-columns:320px 1fr;gap:24px}.panel{background:#171126;border:1px solid #3b2d4e;border-radius:18px;padding:22px}.preview-box{position:sticky;top:20px;text-align:center}.preview-box img{width:230px;height:230px;border-radius:24px;object-fit:cover;border:3px solid #f2b83f;background:#21172e}.preview-box h2{margin:18px 0 4px}.hint{color:#9d91aa;font-size:.88rem}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.avatar-choice{background:#0f0a18;border:2px solid transparent;border-radius:15px;padding:8px;color:#eee;cursor:pointer;transition:.15s}.avatar-choice:hover{transform:translateY(-2px);border-color:#6d3bd1}.avatar-choice.selected{border-color:#f2b83f;box-shadow:0 0 0 2px rgba(242,184,63,.15)}.avatar-choice img{display:block;width:100%;aspect-ratio:1;border-radius:10px;object-fit:cover}.avatar-choice span{display:block;padding:8px 2px 4px;font-size:.82rem}.primary{margin-top:18px;width:100%;padding:13px 18px;border:0;border-radius:11px;background:#f2b83f;color:#15100a;font-weight:800;cursor:pointer}.primary:disabled{opacity:.6;cursor:wait}.message{min-height:22px;margin-top:12px;color:#b9aec7}.back{display:inline-block;color:#b9aec7;text-decoration:none;margin-bottom:18px}.back:hover{color:#fff}@media(max-width:800px){.picker-layout{grid-template-columns:1fr}.preview-box{position:static}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.avatar-head{display:block}}
+</style>
+</head>
+<body>
+<header class="app-nav">
+<a class="brand" href="home.html">VEYORA<span>.</span></a>
+<nav class="app-nav-links" aria-label="Main navigation">
+<a href="home.html">Home</a><a href="search.html">Search</a><a href="watchlist.html">My Library</a><a href="feed.html">Feed</a><a class="active" href="profile.html">Profile</a><a href="settings.html">Settings</a><a href="customize.html">Customize</a><a href="notifications.html">🔔</a>
+</nav>
+</header>
+<main class="avatar-page">
+<a class="back" href="customize.html">← Back to Customize</a>
+<div class="avatar-head"><div><p class="eyebrow">PROFILE AVATAR</p><h1>Choose your avatar</h1><p>Pick one of the avatars provided by VEYORA. No upload required.</p></div></div>
+<div class="picker-layout">
+<section class="panel preview-box"><img id="avatar-preview" src="assets/avatars/avatar01.svg" alt="Selected avatar"><h2>Your avatar</h2><p class="hint">The selected image will appear on your profile and in the navigation bar.</p><button id="save-avatar" class="primary" type="button">Save Avatar</button><div id="avatar-message" class="message"></div></section>
+<section class="panel"><div id="avatar-grid" class="grid"></div></section>
+</div>
+</main>
+<script type="module" src="js/pages/avatar-picker.js"></script>
+</body>
+</html>

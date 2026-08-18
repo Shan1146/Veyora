@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VEYORA — Watch. Collect. Share.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="auth-pending">
+  <a class="skip-link" href="#login-form">Skip to login form</a>
+
+  <main class="auth-shell">
+    <section class="auth-hero">
+      <div class="auth-logo">VEYORA<span class="dot">.</span></div>
+
+      <div class="auth-hero-content">
+        <h1>Watch. <span>Collect.</span> Share.</h1>
+        <p>
+          Your own little internet home for every anime, K-drama, movie,
+          and show you've ever watched — tracked, rated, and shared your way.
+        </p>
+      </div>
+
+      <div class="auth-hero-strip">
+        <span>Anime</span>
+        <span>K-Drama</span>
+        <span>Movies</span>
+        <span>TV Shows</span>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="ticket">
+        <div class="ticket-top">
+          <span class="ticket-tag">Admit One</span>
+          <h2>Welcome back</h2>
+          <p class="ticket-sub">Sign in to pick up where you left off.</p>
+
+          <form id="login-form" class="ticket-form" novalidate>
+            <div class="field">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" name="email" autocomplete="email" required placeholder="you@example.com" />
+            </div>
+            <div class="field">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" name="password" autocomplete="current-password" required placeholder="••••••••" />
+            </div>
+
+            <div id="login-message" class="form-message" role="alert"></div>
+
+            <button type="submit" id="login-submit" class="btn btn-primary btn-block">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="btn-label">Sign In</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="ticket-perforation"></div>
+
+        <div class="ticket-bottom">
+          <p class="ticket-switch">
+            New to VEYORA? <a href="register.html">Create an account</a>
+          </p>
+          <div class="ticket-barcode" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/auth/login.js"></script>
+</body>
+</html>

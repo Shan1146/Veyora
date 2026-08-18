@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home — VEYORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="app-body auth-pending">
+  <header class="app-nav">
+    <a class="brand" href="home.html">VEYORA<span>.</span></a>
+    <nav class="app-nav-links" aria-label="Main navigation">
+      <a class="active" href="home.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <a id="home-avatar" class="avatar avatar-small" href="profile.html" aria-label="Open profile"></a>
+  </header>
+  <main class="settings-page">
+    <section class="settings-header">
+      <p class="eyebrow">WELCOME TO VEYORA</p>
+      <h1 id="welcome">You're in.</h1>
+      <p>Your account is ready. Phase 2 gives you a profile identity with an avatar, nickname, and bio.</p>
+    </section>
+    <section class="profile-grid" style="margin:0">
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">YOUR PROFILE</p><h2 id="home-nickname">Loading…</h2></div><span class="panel-icon">✦</span></div>
+        <p id="home-username" class="muted">@username</p>
+        <p id="home-bio" class="panel-copy">No bio yet.</p>
+        <a class="btn btn-primary" href="profile.html" style="margin-top:1.25rem">View profile</a>
+      </article>
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">PHASE 2</p><h2>Customize yourself</h2></div><span class="panel-icon">✦</span></div>
+        <p class="panel-copy">Upload your avatar, change your nickname, and write a bio. Media search and watchlists arrive in the next phase.</p>
+        <a class="btn btn-ghost" href="settings.html" style="margin-top:1.25rem">Open settings</a>
+      </article>
+    </section>
+  </main>
+  <script type="module">
+    import { requireAuth } from "./js/utils/guards.js";
+    import { getUserProfile } from "./js/firebase/profile.js";
+    const user = await requireAuth();
+    const profile = await getUserProfile(user.uid);
+    document.getElementById("welcome").textContent = `Welcome, ${profile.nickname || "Veyora User"}.`;
+    document.getElementById("home-nickname").textContent = profile.nickname || "Veyora User";
+    document.getElementById("home-username").textContent = `@${profile.username || "username"}`;
+    document.getElementById("home-bio").textContent = profile.bio || "No bio yet.";
+    const avatar = document.getElementById("home-avatar");
+    if (profile.avatarUrl) { avatar.style.backgroundImage = `url("${profile.avatarUrl}")`; } else { avatar.textContent = (profile.nickname || "V").charAt(0).toUpperCase(); }
+    document.body.classList.remove("auth-pending");
+  </script>
+</body>
+</html>

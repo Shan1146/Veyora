@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — VEYORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="app-body auth-pending">
+  <header class="app-nav">
+    <a class="brand" href="home.html">VEYORA<span>.</span></a>
+    <nav class="app-nav-links" aria-label="Main navigation">
+      <a href="home.html">Home</a>
+      <a class="active" href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="nav-user">
+      <span id="nav-nickname">Loading…</span>
+      <button id="nav-avatar-button" class="avatar avatar-small" type="button" aria-label="Open profile"></button>
+    </div>
+  </header>
+
+  <main class="profile-page">
+    <section class="profile-cover" id="profile-cover">
+      <div class="profile-cover-content">
+        <div class="profile-avatar-wrap">
+          <div id="profile-avatar" class="avatar avatar-xl"></div>
+          <span class="profile-online-dot" aria-label="Online"></span>
+        </div>
+        <div class="profile-heading">
+          <p class="eyebrow">MY PROFILE</p>
+          <h1 id="profile-nickname">Loading…</h1>
+          <p id="profile-username" class="profile-handle">@username</p>
+          <p id="profile-bio" class="profile-bio">No bio yet.</p>
+        </div>
+        <a class="btn btn-primary profile-edit" href="settings.html">Edit profile</a>
+      </div>
+    </section>
+
+    <section class="profile-stats" aria-label="Profile statistics">
+      <div><strong>0</strong><span>Anime</span></div>
+      <div><strong>0</strong><span>K-Dramas</span></div>
+      <div><strong>0</strong><span>Movies</span></div>
+      <div><strong>0</strong><span>Friends</span></div>
+    </section>
+
+    <section class="profile-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">ABOUT</p><h2>My space</h2></div>
+          <span class="panel-icon">✦</span>
+        </div>
+        <p class="panel-copy">Your watchlist, favorites, friends, music, and custom profile will live here. Phase 2 sets up the personal identity layer.</p>
+      </article>
+      <article class="panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">NEXT</p><h2>Build your library</h2></div>
+          <span class="panel-icon">＋</span>
+        </div>
+        <p class="panel-copy">Search anime, movies, and K-dramas in the next phase and add them to your personal library.</p>
+      </article>
+    </section>
+  </main>
+
+  <script type="module" src="js/profile/profile.js"></script>
+</body>
+</html>

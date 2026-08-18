@@ -1,0 +1,16 @@
+/* =========================================================
+   VEYORA — Responsive overrides
+   Mobile-first breakpoints layered on top of component CSS.
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .ticket-top,
+  .ticket-bottom {
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+
+  .auth-panel {
+    padding: var(--space-6) var(--space-4);
+  }
+}
