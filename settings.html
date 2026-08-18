@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — VEYORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="css/social.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="app-body auth-pending">
+  <header class="app-nav">
+    <a class="brand" href="home.html">VEYORA<span>.</span></a>
+    <nav class="app-nav-links" aria-label="Main navigation">
+      <a href="home.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="watchlist.html">My Library</a>
+      <a href="feed.html">Feed</a><a href="find-friends.html">Find Friends</a>
+      <a href="profile.html">Profile</a>
+      <a class="active" href="settings.html">Settings</a>
+    <a href="customize.html">Customize</a><a href="avatar.html">Avatar</a></nav>
+    <div class="nav-user">
+      <a id="nav-bell" class="nav-bell" href="notifications.html" aria-label="Notifications">🔔<span class="nav-bell-badge"></span></a>
+      <a id="settings-nav-avatar" class="avatar avatar-small" href="profile.html" aria-label="Open profile"></a>
+    </div>
+  </header>
+
+  <main class="settings-page">
+    <section class="settings-header">
+      <p class="eyebrow">ACCOUNT / PROFILE</p>
+      <h1>Make it yours.</h1>
+      <p>Change the public identity people see on VEYORA.</p>
+    </section>
+
+    <section class="settings-card">
+      <div class="settings-section avatar-section">
+        <div>
+          <p class="eyebrow">PROFILE PHOTO</p>
+          <h2>Your avatar</h2>
+          <p class="muted">JPG, PNG, or WebP. Maximum 5 MB.</p>
+        </div>
+        <div class="avatar-editor">
+          <div id="avatar-preview" class="avatar avatar-xxl"></div>
+          <div class="avatar-actions">
+            <label class="btn btn-primary" for="avatar-input">Upload avatar</label>
+            <input id="avatar-input" type="file" accept="image/jpeg,image/png,image/webp" hidden />
+            <button id="remove-avatar" class="btn btn-ghost" type="button">Remove</button>
+            <p id="avatar-message" class="form-message" role="alert"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-divider"></div>
+
+      <form id="profile-form" class="settings-section" novalidate>
+        <div>
+          <p class="eyebrow">PUBLIC IDENTITY</p>
+          <h2>Profile details</h2>
+          <p class="muted">Your username is permanent for now. Your nickname and bio are editable.</p>
+        </div>
+        <div class="settings-fields">
+          <div class="field">
+            <label for="username">Username</label>
+            <input id="username" type="text" disabled />
+          </div>
+          <div class="field">
+            <label for="nickname">Nickname</label>
+            <input id="nickname" type="text" maxlength="40" required placeholder="Your display name" />
+          </div>
+          <div class="field">
+            <label for="bio">Bio</label>
+            <textarea id="bio" maxlength="160" rows="4" placeholder="Tell people a little about you…"></textarea>
+            <span id="bio-count" class="field-counter">0 / 160</span>
+          </div>
+          <div id="profile-message" class="form-message" role="alert"></div>
+          <button id="save-profile" class="btn btn-primary" type="submit">
+            <span class="spinner" aria-hidden="true"></span>
+            <span class="btn-label">Save profile</span>
+          </button>
+        </div>
+      </form>
+
+      <div class="settings-divider"></div>
+
+      <section class="settings-section">
+        <div>
+          <p class="eyebrow">ACCOUNT</p>
+          <h2>Sign out</h2>
+          <p class="muted">You can sign back in anytime.</p>
+        </div>
+        <button id="logout" data-action="logout" class="btn btn-ghost" type="button">Log out</button>
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="js/profile/settings.js"></script>
+  <script type="module" src="js/auth/logout.js"></script>
+</body>
+</html>
